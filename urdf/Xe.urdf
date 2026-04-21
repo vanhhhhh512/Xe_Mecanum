@@ -1,0 +1,395 @@
+<robot name="Xe">
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.000784393198535627 -1.11022302462516E-16 0.0279165463037664" rpy="0 0 0" />
+      <mass value="4.23084897633117" />
+      <inertia ixx="0.0245471547333712" ixy="-4.26141201216309E-18" ixz="-4.61018337662893E-05" iyy="0.0308610067197859" iyz="-1.98132816756512E-19" izz="0.0521896371680893" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <geometry>
+        <box size="0.25 0.15 0.1" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="Camera">
+    <inertial>
+      <origin xyz="0.00988056013799232 0 0" rpy="0 0 0" />
+      <mass value="0.0150153319284327" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Camera.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Cam_joint" type="fixed">
+    <origin xyz="0.135 0 0.025" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Camera" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="Lidar">
+    <inertial>
+      <origin xyz="6.61692922676593E-13 6.61470878071668E-13 0.0113601037962268" rpy="0 0 0" />
+      <mass value="0.0252636412990468" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Lidar.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Lidar_joint" type="fixed">
+    <origin xyz="0.100000001490115 0 0.0599999999999999" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Lidar" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="Link1">
+    <inertial>
+      <origin xyz="8.88178419700125E-16 3.33066907387547E-16 0.164175238707857" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Link1_joint" type="continuous">
+    <origin xyz="0 0 0.0849999999999999" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Link1" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.14" upper="3.14" effort="1000.0" velocity="1.0" />
+    <dynamics damping="1.0" friction="1.0" />
+  </joint>
+
+  <link name="Link2">
+    <inertial>
+      <origin xyz="0.287848884305117 3.41948691584548E-14 0.00123240305635597" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Link2_joint" type="revolute">
+    <origin xyz="-0.00091106 -0.0049163 0.345" rpy="-1.5708 -0.092312 -0.18324" />
+    <parent link="Link1" />
+    <child link="Link2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-5" upper="1.0" effort="1000.0" velocity="1.0" />
+    <dynamics damping="1.0" friction="1.0" />
+  </joint>
+
+  <link name="Banhtraitruoc">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Banhtraitruoc.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Banhtraitruoc_joint" type="continuous">
+    <origin xyz="0.08 0.14575 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Banhtraitruoc" />
+    <axis xyz="0 -1 0" />
+    <dynamics damping="0.2" friction="0.2" />
+  </joint>
+
+  <link name="Banhsautrai">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Banhsautrai.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Banhsautrai_joint" type="continuous">
+    <origin xyz="-0.08 0.13 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Banhsautrai" />
+    <axis xyz="0 1 0" />
+    <dynamics damping="0.2" friction="0.2" />
+  </joint>
+
+  <link name="Banhtruocphai">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Banhtruocphai.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Banhtruocphai_joint" type="continuous">
+    <origin xyz="0.08 -0.13 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Banhtruocphai" />
+    <axis xyz="0 1 0" />
+    <dynamics damping="0.2" friction="0.2" />
+  </joint>
+
+  <link name="Banhsauphai">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Xe/meshes/Banhsauphai.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Banhsauphai_joint" type="continuous">
+    <origin xyz="-0.08 -0.13 -0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Banhsauphai" />
+    <axis xyz="0 -1 0" />
+    <dynamics damping="0.2" friction="0.2" />
+  </joint>
+
+  <gazebo reference="Banhtraitruoc">
+    <mu1>0.15</mu1>
+    <mu2>0.15</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+  
+  <gazebo reference="Banhsautrai">
+    <mu1>0.15</mu1>
+    <mu2>0.15</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+  
+  <gazebo reference="Banhtruocphai">
+    <mu1>0.15</mu1>
+    <mu2>0.15</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+  
+  <gazebo reference="Banhsauphai">
+    <mu1>0.15</mu1>
+    <mu2>0.15</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=odom</remapping>
+      </ros>
+      <update_rate>50.0</update_rate>
+      <publish_rate>50.0</publish_rate>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="Lidar">
+    <sensor name="lidar" type="ray">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1.0</resolution>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.15</min>
+          <max>12.0</max>
+        </range>
+      </ray>
+      <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=/scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>Lidar</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="Camera">
+    <sensor type="camera" name="cam">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.396</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <namespace>camera</namespace>
+        <camera_name>head</camera_name>
+        <image_topic_name>image_raw</image_topic_name>
+        <camera_info_topic_name>camera_info</camera_info_topic_name>
+        <frame_name>Camera</frame_name>
+        <hack_baseline>0.07</hack_baseline>
+        <distortion_k1>0.0</distortion_k1>
+        <distortion_k2>0.0</distortion_k2>
+        <distortion_k3>0.0</distortion_k3>
+        <distortion_t1>0.0</distortion_t1>
+        <distortion_t2>0.0</distortion_t2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_joint_pose_trajectory" filename="libgazebo_ros_joint_pose_trajectory.so">
+      <ros>
+        <remapping>set_joint_trajectory:=set_joint_trajectory</remapping>
+      </ros>
+      <update_rate>50.0</update_rate>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <remapping>~/out:=joint_states</remapping>
+      </ros>
+      <update_rate>50.0</update_rate>
+      <joint_name>Link1_joint</joint_name>
+      <joint_name>Link2_joint</joint_name>
+      <joint_name>Banhtraitruoc_joint</joint_name>
+      <joint_name>Banhtruocphai_joint</joint_name>
+      <joint_name>Banhsautrai_joint</joint_name>
+      <joint_name>Banhsauphai_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+</robot>
