@@ -1,6 +1,8 @@
-mkdir -p ~/ros2_ws/src
+Chạy từng dòng lệnh sau
 
-cd ~/ros2_ws/src
+mkdir -p ~/r_ws/src
+
+cd ~/r_ws/src
 
 git clone https://github.com/vanhhhhh512/Xe_Mecanum.git Xe
 
