@@ -1,4 +1,4 @@
-Chạy từng dòng lệnh sau
+Chạy từng dòng lệnh sau để clone project về và chạy file launch :
 
 mkdir -p ~/r_ws/src
 
