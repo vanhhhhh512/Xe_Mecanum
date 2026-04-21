@@ -1,8 +1,8 @@
 Chạy từng dòng lệnh sau để clone project về và chạy file launch :
 
-mkdir -p ~/r_ws/src
+mkdir -p ~/ros2_ws/src
 
-cd ~/r_ws/src
+cd ~/ros2_ws/src
 
 git clone https://github.com/vanhhhhh512/Xe_Mecanum.git Xe
 
