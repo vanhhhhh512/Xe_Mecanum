@@ -1,3 +1,5 @@
+Link video Git Clone trong file báo cáo pdf bị lỗi xoá kí tự gạch ngang khi click nên không mở được . Em gửi lại link không bị lỗi : https://drive.google.com/file/d/1wV14tzQIQYyutsPImmUxJk-RD895EfHA/view?usp=sharing
+
 Update fix lỗi không chạy được Gazebo ( cài thêm map của TurtleBot3 ) . Em chỉ sửa file Readme thêm một số lệnh để thầy dễ clone về lại không bị lỗi :
 
 Bước 1: Dọn rác
