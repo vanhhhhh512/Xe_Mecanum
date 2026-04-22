@@ -41,3 +41,25 @@ Bước 4: Chạy file launch hiển thị gazebo , rviz , terminal điều khi�
 source install/setup.bash
 
 ros2 launch Xe master_launch.py
+
+*) Note Nếu vẫn bị lỗi thì chạy tiếp các lệnh :
+
+killall -9 gzserver
+
+killall -9 gzclient
+
+killall -9 rviz2
+
+pkill -9 -f mecanum_numpad.py
+
+ros2 daemon stop
+
+cd ~/ros2_ws
+
+rm -rf build/Xe install/Xe
+
+colcon build --symlink-install --packages-select Xe
+
+source install/setup.bash
+
+ros2 launch Xe master_launch.py
