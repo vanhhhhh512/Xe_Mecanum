@@ -42,7 +42,9 @@ source install/setup.bash
 
 ros2 launch Xe master_launch.py
 
-*) Note Nếu vẫn bị lỗi thì chạy tiếp các lệnh :
+*) Note : thư mục tải về phải để tên là Xe nằm trong Src để tránh bị lỗi đường dẫn
+
+*) Note : Nếu vẫn bị lỗi thì chạy tiếp các lệnh :
 
 killall -9 gzserver
 
